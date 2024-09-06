@@ -46,7 +46,7 @@ below:
 > Note: the API doesn't seem to surface the `location`, and so it has been
 > preferred to use the values provided in a configuration file.
 
-## Measurements:
+## Fields:
 
 |Name|Unit|Description|
 |---|---|---|
