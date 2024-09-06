@@ -1,0 +1,15 @@
+[package]
+name = "teletapo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tapo = { path = "../tapo/tapo/" }
+toml = "0.8.19"
+serde = "1.0.208"
+tokio = { version = "1.38", default-features = false, features = [
+    "rt-multi-thread",
+    "macros",
+] }
+clap = { version = "4.5.17",  features = [ "derive" ] }
+reqwest = "0.12.7"
