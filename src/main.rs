@@ -46,7 +46,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         let client = Client::new();
 
-        while i != 254 {
+        while i != 255 {
             i += 1;
             let addr: Ipv4Addr = Ipv4Addr::from_bits(address.to_bits() + i);
             let ipstring: String = addr.to_string();
