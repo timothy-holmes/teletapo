@@ -22,6 +22,10 @@ struct Config {
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Cli {
+    /// Config file path
+    #[arg(long, default_value = "./config.toml")]
+    config: String,
+    
     /// Scanning mode, /24 as an argument
     #[arg(long)]
     scan: Option<String>,
@@ -30,7 +34,7 @@ struct Cli {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let cli = Cli::parse();
-    let config = std::fs::read_to_string("./config.toml")?;
+    let config = std::fs::read_to_string(cli.config)?;
     let config: Config = toml::from_str(&config)?;
     let tapoclient = ApiClient::new(&config.username, &config.password);
 
